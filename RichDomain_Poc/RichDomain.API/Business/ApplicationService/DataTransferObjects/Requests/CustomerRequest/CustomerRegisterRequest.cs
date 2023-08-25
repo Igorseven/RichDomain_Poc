@@ -7,6 +7,6 @@ public sealed record CustomerRegisterRequest(string FirstName,
                                              string LastName,
                                              ECustomerType CustomerType,
                                              PhoneCustomerRegisterRequest Phone,
-                                             EmailAddressCustomerRegisterRequest Email
+                                             EmailCustomerRegisterRequest Email
                                             );
 

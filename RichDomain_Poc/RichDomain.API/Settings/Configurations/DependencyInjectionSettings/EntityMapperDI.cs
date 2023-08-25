@@ -8,6 +8,6 @@ public static class EntityMapperDI
     public static IServiceCollection AddEntityMapperDI(this IServiceCollection services) =>
         services.AddScoped<ICustomerMapper, CustomerMapper>()
                 .AddScoped<IPhoneMapper, PhoneMapper>()
-                .AddScoped<IEmailAddressMapper, EmailAddressMapper>();
+                .AddScoped<IEmailAddressMapper, EmailMapper>();
         
 }

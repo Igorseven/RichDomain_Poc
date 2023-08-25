@@ -1,4 +1,6 @@
-﻿namespace RichDomain.API.Business.Domain.ValueObjects;
+﻿using RichDomain.API.Business.Domain.Extensions;
+
+namespace RichDomain.API.Business.Domain.ValueObjects;
 
 public class Phone
 {
@@ -12,8 +14,8 @@ public class Phone
 
     public Phone(string cellPhoneNumber, string? telephoneNumber)
     {
-        this.CellPhoneNumber = cellPhoneNumber;
-        this.TelephoneNumber = telephoneNumber;
+        this.CellPhoneNumber = cellPhoneNumber.RemoveCaracters();
+        this.TelephoneNumber = telephoneNumber?.RemoveCaracters();
     }
 }
 

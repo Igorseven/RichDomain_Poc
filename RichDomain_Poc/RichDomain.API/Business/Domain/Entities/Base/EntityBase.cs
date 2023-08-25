@@ -4,7 +4,7 @@ using RichDomain.API.Business.Domain.Extensions;
 
 namespace RichDomain.API.Business.Domain.Entities.Base;
 
-public class EntityBase
+public abstract class EntityBase
 {
     public DateTime CreateDate { get; set; }
     public bool IsValid => GetErrors().Count == 0;

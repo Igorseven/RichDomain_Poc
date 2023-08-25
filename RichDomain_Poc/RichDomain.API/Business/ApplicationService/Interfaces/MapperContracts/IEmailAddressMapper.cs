@@ -5,8 +5,6 @@ using RichDomain.API.Business.Domain.Entities;
 namespace RichDomain.API.Business.ApplicationService.Interfaces.MapperContracts;
 public interface IEmailAddressMapper
 {
-    Email DtoRegisterToDomain(EmailAddressCustomerRegisterRequest dtoEmail);
-    List<Email> DtoRegisterToDomain(List<EmailAddressCustomerRegisterRequest> dtoEmails);
+    Email DtoRegisterToDomain(EmailCustomerRegisterRequest dtoEmail);
     EmailCustomerResponse DomainToCustomerDtoResponse(Email email);
-    List<EmailCustomerResponse> DomainToCustomerDtoResponse(List<Email> emails);
 }
