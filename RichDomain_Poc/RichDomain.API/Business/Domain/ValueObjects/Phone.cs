@@ -3,7 +3,7 @@
 public class Phone
 {
     public string CellPhoneNumber { get; private set; } = string.Empty;
-    public string? TelephoneNumber { get; private set; } = null;
+    public string? TelephoneNumber { get; private set; }
 
     private Phone()
     {

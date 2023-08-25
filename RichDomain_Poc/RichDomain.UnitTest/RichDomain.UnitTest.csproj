@@ -24,4 +24,12 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Mappers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RichDomain.API\RichDomain.API.csproj" />
+  </ItemGroup>
+
 </Project>

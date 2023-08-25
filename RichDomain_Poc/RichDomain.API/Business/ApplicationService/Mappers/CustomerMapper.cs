@@ -24,8 +24,7 @@ public sealed class CustomerMapper : ICustomerMapper
         return new(dtoCustomer.FirstName, 
                    dtoCustomer.LastName, 
                    dtoCustomer.CustomerType, 
-                   email, phone
-                   );
+                   email, phone);
     }
 
 
@@ -55,13 +54,13 @@ public sealed class CustomerMapper : ICustomerMapper
 
     public CustomerWithEmailAndCellPhoneResponse DomainToEmailAndMainAddressDtoResponse(Customer customer)
     {
-        var dtoEmail = _emailAddressMapper.DomainToCustomerDtoResponse(customer.Email);
+        var dtoEmail = _emailAddressMapper.DomainToCustomerDtoResponse(customer.Email!);
 
         return new(customer.CustomerId,
                    customer.FirstName,
                    customer.LastName,
                    customer.CustomerType,
-                   customer.Phone.CellPhoneNumber,
+                   customer.Phone!.CellPhoneNumber,
                    dtoEmail);
     }
         

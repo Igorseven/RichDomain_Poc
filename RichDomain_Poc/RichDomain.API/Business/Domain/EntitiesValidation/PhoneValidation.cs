@@ -18,9 +18,13 @@ public sealed class PhoneValidation : AbstractValidator<Phone>
             ? EMessage.Required.GetDescription().FormatTo("Número de telefone")
             : EMessage.MoreExpected.GetDescription().FormatTo("Número de telefone", "entre {MinLength} e {MaxLength}"));
 
-        RuleFor(p => p.CellPhoneNumber).NotEmpty().Length(11, 14)
-            .WithMessage(p => string.IsNullOrWhiteSpace(p.CellPhoneNumber)
-            ? EMessage.Required.GetDescription().FormatTo("Número do celular")
-            : EMessage.MoreExpected.GetDescription().FormatTo("Número do celular", "entre {MinLength} e {MaxLength}"));
+        When(p => p.TelephoneNumber is not null, () =>
+        {
+            RuleFor(p => p.CellPhoneNumber).NotEmpty().Length(11, 14)
+                .WithMessage(p => string.IsNullOrWhiteSpace(p.CellPhoneNumber)
+                ? EMessage.Required.GetDescription().FormatTo("Número do celular")
+                : EMessage.MoreExpected.GetDescription().FormatTo("Número do celular", "entre {MinLength} e {MaxLength}"));
+        });
+        
     }
 }
