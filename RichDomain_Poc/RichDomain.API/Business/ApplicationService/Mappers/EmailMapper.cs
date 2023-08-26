@@ -4,7 +4,7 @@ using RichDomain.API.Business.ApplicationService.Interfaces.MapperContracts;
 using RichDomain.API.Business.Domain.Entities;
 
 namespace RichDomain.API.Business.ApplicationService.Mappers;
-public sealed class EmailMapper : IEmailAddressMapper
+public sealed class EmailMapper : IEmailMapper
 {
     public Email DtoRegisterToDomain(EmailCustomerRegisterRequest dtoEmail) =>
         new(dtoEmail.EmailAddress);

@@ -3,7 +3,7 @@ using RichDomain.API.Business.ApplicationService.DataTransferObjects.Responses.E
 using RichDomain.API.Business.Domain.Entities;
 
 namespace RichDomain.API.Business.ApplicationService.Interfaces.MapperContracts;
-public interface IEmailAddressMapper
+public interface IEmailMapper
 {
     Email DtoRegisterToDomain(EmailCustomerRegisterRequest dtoEmail);
     EmailCustomerResponse DomainToCustomerDtoResponse(Email email);

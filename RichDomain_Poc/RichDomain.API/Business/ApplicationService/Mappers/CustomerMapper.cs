@@ -6,25 +6,26 @@ using RichDomain.API.Business.Domain.Entities;
 namespace RichDomain.API.Business.ApplicationService.Mappers;
 public sealed class CustomerMapper : ICustomerMapper
 {
-    private readonly IEmailAddressMapper _emailAddressMapper;
+    private readonly IEmailMapper _emailsMapper;
     private readonly IPhoneMapper _phoneMapper;
 
-    public CustomerMapper(IEmailAddressMapper emailAddressMapper,
+    public CustomerMapper(IEmailMapper emailAddressMapper,
                           IPhoneMapper phoneMapper)
     {
-        _emailAddressMapper = emailAddressMapper;
+        _emailsMapper = emailAddressMapper;
         _phoneMapper = phoneMapper;
     }
 
     public Customer DtoRegisterToDomain(CustomerRegisterRequest dtoCustomer)
     {
-        var email = _emailAddressMapper.DtoRegisterToDomain(dtoCustomer.Email);
+        var email = _emailsMapper.DtoRegisterToDomain(dtoCustomer.Email);
         var phone = _phoneMapper.DtoRegisterToDomain(dtoCustomer.Phone);
 
         return new(dtoCustomer.FirstName, 
                    dtoCustomer.LastName, 
                    dtoCustomer.CustomerType, 
-                   email, phone);
+                   email, 
+                   phone);
     }
 
 
@@ -54,7 +55,7 @@ public sealed class CustomerMapper : ICustomerMapper
 
     public CustomerWithEmailAndCellPhoneResponse DomainToEmailAndMainAddressDtoResponse(Customer customer)
     {
-        var dtoEmail = _emailAddressMapper.DomainToCustomerDtoResponse(customer.Email!);
+        var dtoEmail = _emailsMapper.DomainToCustomerDtoResponse(customer.Email!);
 
         return new(customer.CustomerId,
                    customer.FirstName,
